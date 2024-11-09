@@ -78,5 +78,5 @@ def generate_pdf(ticker, start_date, end_date):
 # generate report; change the ticker variable to your yfinance ticker symbol
 ticker = "^IRX"
 start_date = "2020-01-01"
-end_date = "2024-08-01"
+end_date = "2024-11-01"
 generate_pdf(ticker, start_date, end_date)
