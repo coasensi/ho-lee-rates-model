@@ -1,129 +1,32 @@
-I built this program trying to implement my CFA Level II learnings.
+I created this python program to implement my CFA Level II learnings.
 
-It implements the Ho-Lee Model, a financial model used to simulate and analyze interest rate dynamics. 
+Here focus on the **Ho-Lee Model**, a foundational no-arbitrage model to simulate and analyze interest rate dynamics. 
 
-generates simulated paths to understand potential future movements in interest rates
+simulate paths to explore potential future movements of short-term interest rates
 
-The Ho-Lee model is a no-arbitrage interest rate model used in finance to describe the evolution of short-term interest rates over time. It is a simple yet foundational model that assumes the short rate 
-𝑟
-𝑡
-r 
-t
-​
-  follows a stochastic process:
+### Overview of the Ho-Lee Model
+The Ho-Lee model assumes that the short-term interest rate \( r_t \) evolves according to the following stochastic process:
 
-𝑑
-𝑟
-𝑡
-=
-𝜃
- 
-𝑑
-𝑡
-+
-𝜎
- 
-𝑑
-𝑊
-𝑡
-dr 
-t
-​
- =θdt+σdW 
-t
-​
- 
-Components of the Model
-𝑟
-𝑡
-r 
-t
-​
- : The short-term interest rate at time 
-𝑡
-t.
-𝜃
-θ: The drift term, which captures the deterministic trend or mean rate of change in the interest rate.
-𝜎
-σ: The volatility term, representing the magnitude of random fluctuations in the interest rate.
-𝑑
-𝑊
-𝑡
-dW 
-t
-​
- : A Wiener process (or Brownian motion), modeling random noise with the properties:
-𝑑
-𝑊
-𝑡
-∼
-𝑁
-(
-0
-,
-𝑑
-𝑡
-)
-dW 
-t
-​
- ∼N(0,dt), i.e., normally distributed with mean 
-0
-0 and variance 
-𝑑
-𝑡
-dt.
+```
+dr_t = θ * dt + σ * dW_t
+```
 
-drift 
-𝜃
-θ and volatility 
-𝜎
-σ are constant over time
+#### Key Components
+1. **r_t**: The short-term interest rate at time \( t \).
+2. **θ**: The drift term, representing the deterministic trend or average rate of change in the interest rate.
+3. **σ**: The volatility term, quantifying the magnitude of random fluctuations.
+4. **dW_t**: A Wiener process (Brownian motion) that introduces random noise:
+   - \( dW_t ~ N(0, dt) \), i.e., normally distributed with mean \( 0 \) and variance \( dt \).
 
-o simulate interest rate paths, we discretize the model using a time step 
-Δ
-𝑡
-Δt:
+### Discretization for Simulation
+The model can be discretized for simulation purposes as follows:
 
-𝑟
-𝑡
-+
-Δ
-𝑡
-=
-𝑟
-𝑡
-+
-𝜃
- 
-Δ
-𝑡
-+
-𝜎
- 
-Δ
-𝑡
- 
-𝑍
-r 
-t+Δt
-​
- =r 
-t
-​
- +θΔt+σ 
-Δt
-​
- Z
+```
+r(t + Δt) = r(t) + θ * Δt + σ * sqrt(Δt) * Z
+```
+
 Where:
+- \( Δt \): Time step size.
+- \( Z ~ N(0, 1) \): A standard normal random variable.
 
-𝑍
-∼
-𝑁
-(
-0
-,
-1
-)
-Z∼N(0,1) is a standard normal random variable
-
+This program leverages the Ho-Lee model to simulate interest rate paths and generate insights into potential rate movements. It also provides a practical way to explore the theoretical foundations of stochastic interest rate modeling.
