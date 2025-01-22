@@ -26,7 +26,9 @@ r(t + Δt) = r(t) + θ * Δt + σ * sqrt(Δt) * Z
 ```
 
 Where:
+
 Δt : Time step size.
+
 Z ~ N(0, 1): A standard normal random variable.
 
 This program leverages the Ho-Lee model to simulate interest rate paths and generate insights into potential rate movements. It also provides a practical way to explore the theoretical foundations of stochastic interest rate modeling.
